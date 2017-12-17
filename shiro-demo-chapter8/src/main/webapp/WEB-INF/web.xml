@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0"
+         xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+	http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID">
+
+    <display-name>shiro-demo-chapter8</display-name>
+
+    <!-- shiro 1.2之后配置 -->
+    <listener>
+        <!-- EnvironmentLoaderListener实现ServletContextListener接口，用于监听容器的启动与关闭事件 -->
+        <listener-class>org.apache.shiro.web.env.EnvironmentLoaderListener</listener-class>
+    </listener>
+
+    <!-- 配置WebEnvironment接口的实现类，默认为IniWebEnvironment -->
+    <context-param>
+        <param-name>shiroEnvironmentClass</param-name>
+        <param-value>org.apache.shiro.web.env.IniWebEnvironment</param-value>
+        <!--<param-value>com.github.linyp.shiro.chapter8.env.MyIniWebEnvironment</param-value>-->
+    </context-param>
+    <!-- 若不配置，默认先从/WEB-INF/shiro.ini，如果没有则找classpath:shiro.ini -->
+    <context-param>
+        <param-name>shiroConfigLocations</param-name>
+        <param-value>classpath:shiro.ini</param-value>
+    </context-param>
+
+    <filter>
+        <filter-name>ShiroFilter</filter-name>
+        <filter-class>org.apache.shiro.web.servlet.ShiroFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>ShiroFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+
+    <!--
+        Shiro与Spring集成
+        DelegatingFilterProxy作用是自动到spring容器查找名字为shiroFilter（filter-name）的bean,
+        并把所有Filter的操作委托给它
+    -->
+    <!--<filter>-->
+        <!--<filter-name>shiroFilter</filter-name>-->
+        <!--<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>-->
+        <!--<init-param>-->
+            <!--<param-name>targetFilterLifecycle</param-name>-->
+            <!--<param-value>true</param-value>-->
+        <!--</init-param>-->
+    <!--</filter>-->
+    <!--<filter-mapping>-->
+        <!--<filter-name>shiroFilter</filter-name>-->
+        <!--<url-pattern>/*</url-pattern>-->
+    <!--</filter-mapping>-->
+    
+    
+</web-app>
