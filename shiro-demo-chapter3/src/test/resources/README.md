@@ -25,13 +25,13 @@
 
 
 ### Shiro对权限字符串缺失部分的处理
-如“user:view”等价于“user:view:*”；而“organization”等价于“organization:*”或者
-“organization:*:*”。可以这么理解，这种方式实现了前缀匹配。
+如“user:view”等价于“user:view:\*”；而“organization”等价于“organization:\*”或者
+“organization:\*:\*”。可以这么理解，这种方式实现了前缀匹配。
 
-另外如“user:*”可以匹配如“user:delete”、“user:delete”可以匹配如“user:delete:1”、
+另外如“user:\*”可以匹配如“user:delete”、“user:delete”可以匹配如“user:delete:1”、
 “user:*:1”可以匹配如“user:view:1”、“user”可以匹配“user:view”或“user:view:1”
-等。即*可以匹配所有，不加*可以进行前缀匹配；
+等。即\*可以匹配所有，不加\*可以进行前缀匹配；
 
-但是如“*:view”不能匹配
-“system:user:view”，需要使用“*:*:view”，即后缀匹配必须指定前缀（多个冒号就需要
-多个*来匹配）。
+但是如“\*:view”不能匹配
+“system:user:view”，需要使用“*:\*:view”，即后缀匹配必须指定前缀（多个冒号就需要
+多个\*来匹配）。
