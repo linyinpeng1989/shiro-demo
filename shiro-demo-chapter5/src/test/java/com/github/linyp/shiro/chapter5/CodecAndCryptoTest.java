@@ -138,7 +138,7 @@ public class CodecAndCryptoTest {
         DefaultHashService hashService = new DefaultHashService();  //默认算法SHA-512
         hashService.setHashAlgorithmName("SHA-512");
         hashService.setPrivateSalt(new SimpleByteSource("123"));    //私盐，默认无
-        hashService.setGeneratePublicSalt(true);    //是否生成公盐，默认false
+        hashService.setGeneratePublicSalt(true);    //没有传入公盐的情况下，是否生成公盐，默认false
         hashService.setRandomNumberGenerator(new SecureRandomNumberGenerator());    //用于生成公盐
         hashService.setHashIterations(1); //生成Hash值的迭代次数
 

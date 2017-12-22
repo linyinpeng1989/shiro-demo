@@ -13,7 +13,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * @author Yinpeng Lin
  * @date 2017/11/19
- * @desc
+ * @desc 自定义CredentialsMatcher实现，实现密码重试次数限制
  */
 public class RetryLimitHashedCredentialsMatcher extends HashedCredentialsMatcher {
 

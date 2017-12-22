@@ -15,6 +15,7 @@
     <module>shiro-demo-chapter8</module>
     <module>shiro-demo-chapter9</module>
     <module>shiro-demo-chapter10</module>
+    <module>shiro-demo-chapter11</module>
   </modules>
   <packaging>pom</packaging>
 

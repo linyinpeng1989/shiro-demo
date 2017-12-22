@@ -26,7 +26,7 @@ public class MyIniWebEnvironment extends IniWebEnvironment {
         // 2、创建FilterChainManager
         DefaultFilterChainManager filterChainManager = new DefaultFilterChainManager();
 
-        // 3、注册Filter
+        // 3、注册默认的Filter
         for (DefaultFilter filter : DefaultFilter.values()) {
             filterChainManager.addFilter(filter.name(), (Filter) ClassUtils.newInstance(filter.getFilterClass()));
         }
